@@ -11,8 +11,8 @@ const app = express();
 app.use(express.json()); // Parse incoming JSON
 app.use(cors());
 
-async function handler(fn) {
-  return (req, res) => {
+function handler(fn) {
+  return async (req, res) => {
     try {
       const result = await fn(req);
       res.status(200).json(result);
