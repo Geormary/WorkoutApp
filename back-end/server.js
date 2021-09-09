@@ -1,18 +1,20 @@
-import express from 'express'
-import dotenv from 'dotenv'
+import express from 'express';
 import cors from 'cors';
-import getAllExercises from './getAllExercises.js'
-import createExercise from './createExercise.js'
+import getAllExercises from './getAllExercises.js';
+import createExercise from './createExercise.js';
+import pgPromise from 'pg-promise';
+
+const pgp = pgPromise({});
+const db = pgp('postgres://postgres:@localhost:5432/workouts_db');
 
 const app = express();
-dotenv.config();
 app.use(express.json()); // Parse incoming JSON
 app.use(cors());
 
-function handler(fn) {
+async function handler(fn) {
   return (req, res) => {
     try {
-      const result = fn(req);
+      const result = await fn(req);
       res.status(200).json(result);
     } catch (err) {
       res.status(500).json({error: err});
@@ -21,15 +23,14 @@ function handler(fn) {
 }
 
 app.get("/exercises", handler((req) => {
-  return getAllExercises();
+  return getAllExercises(db);
 }));
 
 app.post("/exercises", handler(req => {
-  return createExercise(req.body.name);
+  return createExercise(db, req.body.name);
 }));
 
-
-const port = process.env.PORT;
+const port = 5555;
 app.listen(port, () => {
   console.log(`🪨 Listening on port ${port} 💎 `);
 });
