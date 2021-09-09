@@ -7,11 +7,14 @@
     
 ### Data Model
 
-    Exercise
-    Name {TEXT}
-    Date {TIMESTAMP}
-    Reps {INTEGER}
-    Sets {INTEGER}
+ CREATE TABLE exercises(
+    id SERIAL PRIMARY KEY, 
+    name TEXT,
+    date DATE,
+    reps INTEGER,
+    sets INTEGER
+
+);
 
 ### End Points
 
