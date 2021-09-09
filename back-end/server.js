@@ -30,7 +30,11 @@ app.post("/exercises", handler(req => {
   return createExercise(db, req.body.name);
 }));
 
-const port = 5555;
-app.listen(port, () => {
-  console.log(`🪨 Listening on port ${port} 💎 `);
-});
+if (process.env.NODE_ENV !== 'test') {
+  const port = 5555;
+  app.listen(port, () => {
+    console.log(`🪨 Listening on port ${port} 💎 `);
+  });
+}
+
+export default app;
