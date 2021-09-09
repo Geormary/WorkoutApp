@@ -1,5 +1,6 @@
 // DEPENDENCIES
 const express = require("express");
+const cors = require("cors");
 const exercisesController = require("./controllers/exercisesController");
 
 // CONFIGURATION
@@ -15,6 +16,7 @@ app.use("/exercises", exercisesController);
 app.get("/", (req, res) => {
   res.send("Welcome to Workout App");
 });
+
 
 app.get("*", (req, res) => {
   res.send("Page not found");

@@ -1,4 +1,5 @@
-\ c workouts_db
+\c workouts_db
+
 INSERT INTO exercises(name, date, reps, sets)
 VALUES ('Squats', '01/21/2022', 8, 3),
     ('Bench Press', '01/21/2022', 8, 3),

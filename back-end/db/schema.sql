@@ -3,10 +3,12 @@ CREATE DATABASE workouts_db;
 
 \c workouts_db;
 
+DROP TABLE IF EXISTS exercises;
+
 CREATE TABLE exercises(
     id SERIAL PRIMARY KEY, 
     name TEXT,
-    date TIMESTAMP(DATE)),
+    date DATE,
     reps INTEGER,
     sets INTEGER
 
