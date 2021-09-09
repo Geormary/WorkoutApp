@@ -1,5 +1,6 @@
-export default function getAllExercises() {
-    // return allExercises = await db.any("SELECT * FROM exercises");
+import db from './db.js';
 
-    return ['exercise', 'ex-er-cise', 'eggs ARE sides', 'for bacon', 'bacon!']
+export default async function getAllExercises() {
+    return await db.any("SELECT * FROM exercises");
+    // return ['exercise', 'ex-er-cise', 'eggs ARE sides', 'for bacon', 'bacon!']
 }

@@ -28,6 +28,7 @@ app.post("/exercises", handler(req => {
   return createExercise(req.body.name);
 }));
 
+
 const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`🪨 Listening on port ${port} 💎 `);
