@@ -5,7 +5,7 @@ CREATE DATABASE workouts_db;
 
 DROP TABLE IF EXISTS exercises;
 
-CREATE TABLE exercises(
+CREATE TABLE exercises (
     id SERIAL PRIMARY KEY, 
     name TEXT,
     date DATE,

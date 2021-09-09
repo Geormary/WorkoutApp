@@ -7,7 +7,7 @@
     
 ### Data Model
 
- CREATE TABLE exercises(
+ CREATE TABLE exercises (
     id SERIAL PRIMARY KEY, 
     name TEXT,
     date DATE,
